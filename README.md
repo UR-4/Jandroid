@@ -1,6 +1,7 @@
 # jandroid
 
-A tool for template matching against apps. Current use case is to identify potential logic bug exploit chains on Android.
+A patch version of Jandroid.
 
-Please check out the Project Wiki for details on how to use the tool.
+neo4j output does not work due to library reaching end of life for this version. 
 
+visjs output still works
