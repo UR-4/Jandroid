@@ -82,16 +82,21 @@ class CodeSearch:
                     self.fn_process_individual_search_item(search_item)
                 if bool_one_satisfied == True:
                     satisfied_searches += 1
+                    self.current_links = \
+                        self.inst_analysis_utils.fn_convert_returns_to_links(
+                            self.current_returns,
+                            self.current_links
+                )
             if satisfied_searches == total_searches_to_perform:
                 bool_satisfied = True
 
         # Process returns as links.
-        if bool_satisfied == True:
-            self.current_links = \
-                self.inst_analysis_utils.fn_convert_returns_to_links(
-                    self.current_returns,
-                    self.current_links
-                )
+        #if bool_satisfied == True:
+        #    self.current_links = \
+        #        self.inst_analysis_utils.fn_convert_returns_to_links(
+        #            self.current_returns,
+        #            self.current_links
+        #        )
 
         self.fn_reset()
         

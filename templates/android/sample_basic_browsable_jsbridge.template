@@ -24,14 +24,23 @@
         "RETURN": ["<smali>:<NAMESPACE>:name AS @activity_name"]
     },
     "CODEPARAMS": {
-        "SEARCH": {
-            "SEARCHFORCALLTOMETHOD": {
-                "METHOD": "Landroid/webkit/WebView;->addJavascriptInterface",
-                "RETURN": "<class> AS @web_view"
-            }
-        },
+        "SEARCH": [
+		    {
+		        "SEARCHFORCALLTOMETHOD": {
+		            "METHOD": "Landroid/webkit/WebView;->addJavascriptInterface",
+		            "RETURN": "<class> AS @web_view"
+		        }
+		    },
+		    {
+		        "SEARCHFORCALLTOMETHOD": {
+		            "METHOD": "Landroid/webkit/WebView;->loadUrl",
+		            "SEARCHLOCATION": "<class>:@web_view",
+		            "RETURN": "<method> AS @load_url"
+		        }
+		    }
+        ],
         "TRACE": {
-            "TRACEFROM": "<method>:@web_view[]->loadUrl(Ljava/lang/String;)V",
+            "TRACEFROM": "<method>:@load_url[]",
             "TRACETO": "<class>:@activity_name",
             "TRACELENGTHMAX": 10,
             "RETURN": "<tracepath> AS @tracepath_browsablejsbridge"

@@ -475,7 +475,9 @@ class AnalysisUtils:
 
         # Process the descriptor part returned by Androguard.
         # Get rid of the whitespaces.
-        desc_part = desc_part.replace(' ', '')
+        
+        # desc_part = desc_part.replace(' ', '')        ## Whitespace issue
+        
         # Just in case access specifiers are returned, get rid of those.
         desc_part = desc_part.split('[access')[0]
         return [class_part, method_part, desc_part]
